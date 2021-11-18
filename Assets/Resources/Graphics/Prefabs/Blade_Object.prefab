@@ -113,6 +113,7 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 09cc6433c76478cce9dcf012fb8306fa, type: 3}
   - {fileID: 8300000, guid: 64af65616320f27858fdb93305093629, type: 3}
+  player_hand_animator: {fileID: 0}
   speed: 3
 --- !u!82 &8536625770138133490
 AudioSource:
@@ -200,7 +201,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -8,8 +8,11 @@ using UnityEngine;
 public class MHandController : MonoBehaviour
 {
     [SerializeField] private GunController gunController;
+    [SerializeField] private int maxBlades;
+    [SerializeField] private int maxPowercells;
     private wTags tags;
     private int bladeCount = 0;
+    private int powercellCount = 0;
     private bool coolingdown = false;
 
 
@@ -42,9 +45,33 @@ public class MHandController : MonoBehaviour
     }
 
 
-    public void CollectBlade()
+    public void CollectBlade(GameObject collectableObjects)
     {
-        bladeCount ++;
+        BladeController bladeController = collectableObjects.GetComponent<BladeController>();
+        if (bladeCount < maxBlades)
+        {
+            bladeCount ++;
+            bladeController.Destroy();
+        }
+        else
+        {
+            bladeController.Reject();
+        }
+    }
+
+
+    public void CollectPowercell(GameObject collectableObjects)
+    {
+        BladeController bladeController = collectableObjects.GetComponent<BladeController>();
+        if (powercellCount < maxPowercells)
+        {
+            powercellCount ++;
+            bladeController.Destroy();
+        }
+        else
+        {
+            bladeController.Reject();
+        }
     }
 
     private BladeController GetBlade(Collider other)
@@ -58,7 +85,7 @@ public class MHandController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         tag = other.tag;
-        if (tag == tags.Blade)
+        if (tag == tags.Blade || tag == tags.Powercell)
         {
             BladeController blade_controller = GetBlade(other);
             blade_controller.DoAttraction(transform);
@@ -69,7 +96,7 @@ public class MHandController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         tag = other.tag;
-        if (tag == tags.Blade)
+        if (tag == tags.Blade || tag == tags.Powercell)
         {
             BladeController blade_controller = GetBlade(other);
             blade_controller.StopAttraction();

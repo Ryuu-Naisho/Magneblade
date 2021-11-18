@@ -8,22 +8,27 @@ public class BladeController : MonoBehaviour
 {
     [SerializeField] private AudioClip[] clips;
     [SerializeField] private wAnimatorUtils player_hand_animator;
+    [SerializeField] private float rejectionForce;
     public int speed;
     private AudioUtil audioUtil;
     private bool attract = false;
     private bool collected = false;
     private Transform player_hand_transform;
+    private wTags tags;
+    private int rejectionForceReached = 0;
+    private bool rejected = false;
 
     // Start is called before the first frame update
     void Start()
     {
         audioUtil = GetComponent<AudioUtil>();
+        tags = new wTags();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (attract)
+        if (attract && !rejected)
         {
             follow();
             player_hand_animator.Attract();
@@ -31,6 +36,12 @@ public class BladeController : MonoBehaviour
         else
         {
             player_hand_animator.StopAttract();
+        }
+
+
+        if (rejected)
+        {
+            ApplyRectionForce();
         }
 
 
@@ -65,13 +76,49 @@ public class BladeController : MonoBehaviour
     }
 
 
+    public void Destroy()
+    {
+        Destroy(gameObject, 0.01f);
+    }
+
+
+    private void ApplyRectionForce()
+    {
+        if (rejectionForceReached <= rejectionForce)
+        {
+            transform.rotation = Quaternion.LookRotation(transform.position - player_hand_transform.position);
+            float step = (speed*speed) * Time.deltaTime;
+            transform.position += Vector3.forward * Time.deltaTime * (speed*speed);
+            rejectionForceReached ++;
+        }
+        else
+        {
+            rejected = false;
+            collected = false;
+            rejectionForceReached = 0;
+        }
+    }
+
+
+    public void Reject()
+    {
+        rejected = true;
+    }
+
+
     private void DoCollection()
     {
         MHandController handController = player_hand_transform.gameObject.GetComponent<MHandController>();
-        handController.CollectBlade();
+        if (tag == tags.Blade)
+        {
+            handController.CollectBlade(gameObject);
+        }
+        else if (tag == tags.Powercell)
+        {
+            handController.CollectPowercell(gameObject);
+        }
         attract = false;
         collected = true;
-        Destroy(gameObject, 0.01f);
     }
 
     private void follow()
