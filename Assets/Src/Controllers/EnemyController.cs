@@ -12,8 +12,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int AttackRange;
     [SerializeField] private int health;
     [SerializeField] private float stunnedTime;
+    [SerializeField] private AudioClip[] NPCAudioClips;
     private wAnimatorUtils animator;
     private UnityEngine.AI.NavMeshAgent agent;
+    private AudioUtil audioUtil;
     private bool chase = false;
     private bool canMove = true;
     private bool attack = false;
@@ -25,12 +27,14 @@ public class EnemyController : MonoBehaviour
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator = GetComponent<wAnimatorUtils>();
+        audioUtil = GetComponent<AudioUtil>();
         playerController = playerTransform.gameObject.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        DoSound();
         if (canMove)
         {
             PlayerFinder();
@@ -43,7 +47,6 @@ public class EnemyController : MonoBehaviour
             if (attack)
             {
                 animator.Attack();
-                playerController.Hit();
             }
             
             if (!chase && !attack && idle)
@@ -51,6 +54,26 @@ public class EnemyController : MonoBehaviour
                 animator.Idle();
             }
         }
+    }
+
+
+    private AudioClip GetRandomClip(AudioClip[] clips)
+    {
+        int size = clips.Length;
+        int random_index = UnityEngine.Random.Range(0,size);
+        AudioClip clip = clips[random_index];
+        return clip;
+    }
+
+
+    private void DoSound()
+    {
+        if (!audioUtil.isPlaying)
+        {
+            AudioClip clip  = GetRandomClip(NPCAudioClips);
+            audioUtil.Play(clip);
+        }
+
     }
 
 

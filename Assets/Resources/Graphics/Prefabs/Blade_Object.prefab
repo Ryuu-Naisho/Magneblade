@@ -114,6 +114,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 09cc6433c76478cce9dcf012fb8306fa, type: 3}
   - {fileID: 8300000, guid: 64af65616320f27858fdb93305093629, type: 3}
   player_hand_animator: {fileID: 0}
+  rejectionForce: 50
   speed: 3
 --- !u!82 &8536625770138133490
 AudioSource:

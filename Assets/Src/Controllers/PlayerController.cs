@@ -155,6 +155,7 @@ public class PlayerController : MonoBehaviour
 
     public void Hit()
     {
+        Debug.Log("hit");
         healthPoints --;
         if (healthPoints <= 0)
         {
