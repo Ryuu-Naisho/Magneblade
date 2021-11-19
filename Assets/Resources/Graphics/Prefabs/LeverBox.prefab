@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7471258317510461035}
   - component: {fileID: 8092974600267913106}
   - component: {fileID: 1792812924514341556}
+  - component: {fileID: 3864192075303972387}
+  - component: {fileID: 8075497420087875514}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -81,6 +83,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3864192075303972387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744654895870360842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0.0156116765, y: -0.5, z: -0.26833528}
+--- !u!114 &8075497420087875514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744654895870360842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a729249fcc52d42a9e8c178d8ac5988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wGui: {fileID: 38281765613177586, guid: 007ce54c141a0bacfad9726f9bffa00e, type: 3}
 --- !u!1 &7543204618339376995
 GameObject:
   m_ObjectHideFlags: 0
