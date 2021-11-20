@@ -13,7 +13,6 @@ public class MHandController : MonoBehaviour
     private wTags tags;
     private int bladeCount = 0;
     private int powercellCount = 0;
-    private bool coolingdown = false;
 
 
 

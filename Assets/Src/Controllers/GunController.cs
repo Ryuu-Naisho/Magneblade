@@ -12,12 +12,10 @@ public class GunController : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform muzzleTransform;
     [SerializeField] private Transform gunTransform;
-    [SerializeField] private float swayMagnitude = .1f;
     [SerializeField] private AudioClip[] clips;
     [SerializeField] private wAnimatorUtils animator;
     private AudioUtil audioUtil;
     private int bladeCount = 0;
-    private int swayCounter = 0;
     private bool coolingdown = false;
 
 

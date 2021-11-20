@@ -34,6 +34,11 @@ public class SceneController : MonoBehaviour
         StartCoroutine(Wait(transitionTime, loadScene)); 
     }
 
+    public void LoserScene()
+    {
+        SceneManager.LoadScene(scenes.LoserScene);
+    }
+
     private IEnumerator Wait(float time, Action onComplete)
     {
         yield return new WaitForSeconds(time);

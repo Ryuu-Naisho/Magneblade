@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private bool _isIdle = true;
     private bool leverUsed = false;
     private MHandController handController;
+    private SceneController sceneController;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         audioUtil = GetComponent<AudioUtil>();
         handController = GetComponentInChildren<MHandController>();
+        sceneController = GetComponent<SceneController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -79,7 +81,6 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && canMove)
             {
-                //Jump();
                 moveDirection.y = jumpSpeed;
             }
             else if(moveSpeed != speed)
@@ -159,7 +160,7 @@ public class PlayerController : MonoBehaviour
         healthPoints --;
         if (healthPoints <= 0)
         {
-            //TODO Loser scene
+            sceneController.LoserScene();
         }
     }
 

@@ -7,6 +7,8 @@ public class DumpsterController : MonoBehaviour
 {
     [SerializeField] private Transform shitantPrefab;
     [SerializeField] private float transitionTime;
+    [SerializeField] private AudioClip JumpScarClip;
+    private AudioSource audioSource;
     private wTags tags;
     private Animator animator;
     private bool animationExecuted = false;
@@ -15,6 +17,7 @@ public class DumpsterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         tags = new wTags();
         names = new wNames();
         animator = GetComponent<Animator>();
@@ -58,6 +61,7 @@ public class DumpsterController : MonoBehaviour
         {
             animator.enabled = true;
             animationExecuted = true;
+            audioSource.PlayOneShot(JumpScarClip);
         }
     }
 

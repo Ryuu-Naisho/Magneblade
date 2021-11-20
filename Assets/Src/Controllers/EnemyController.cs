@@ -118,7 +118,6 @@ public class EnemyController : MonoBehaviour
 
     private void PlayerFinder()
     {
-        bool isNear = false;
         float distance = (playerTransform.position-this.transform.position).sqrMagnitude;
         if (distance<ChaseRange*ChaseRange && distance > AttackRange*AttackRange) {
             if (!chase)
