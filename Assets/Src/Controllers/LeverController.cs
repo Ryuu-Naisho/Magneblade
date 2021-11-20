@@ -5,12 +5,14 @@ using UnityEngine;
 public class LeverController : MonoBehaviour
 {
     [SerializeField] private Transform LightsOnOPrefab;
+    [SerializeField] private Material PortalOnMaterial;
     private wTags tags;
     private wHints hints;
     private wNames names;
     private bool canUse = false;
     private bool leverDown = false;
     private GuiController wGui;
+    private PlayerController _playerController;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,15 @@ public class LeverController : MonoBehaviour
             Destroy(light);
             Instantiate(LightsOnOPrefab, current_position, current_rotation);
         }
+
+
+        GameObject[] portalObjects = GameObject.FindGameObjectsWithTag(tags.Portal);
+        Debug.Log(portalObjects.Length);
+        foreach(GameObject portal in portalObjects)
+        {
+            MeshRenderer meshRenderer = portal.GetComponent<MeshRenderer>();
+            meshRenderer.material = PortalOnMaterial;
+        }
     }
 
     private void TurnLever()
@@ -52,6 +63,7 @@ public class LeverController : MonoBehaviour
         wGui.clearHint();
         canUse = false;
         leverDown = true;
+        _playerController.UseLever();
         TurnPowerOn();
     }
 
@@ -64,6 +76,7 @@ public class LeverController : MonoBehaviour
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
             if (playerController.HasAllPowercells())
             {
+                _playerController = playerController;
                 wGui.SetHint(hints.LeverHint);
                 canUse = true;
             }

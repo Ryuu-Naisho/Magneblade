@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool canMove = true;
     private bool takingStep = false;
     private bool _isIdle = true;
+    private bool leverUsed = false;
     private MHandController handController;
 
     // Start is called before the first frame update
@@ -173,6 +174,18 @@ public class PlayerController : MonoBehaviour
             hasAll = true;
         }
         return hasAll;
+    }
+
+
+    public void UseLever()
+    {
+        leverUsed = true;
+    }
+
+
+    public bool UsedLever()
+    {
+        return leverUsed;
     }
 
 

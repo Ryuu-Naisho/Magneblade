@@ -10,10 +10,12 @@ public class wTags
     private string _player = "Player";
     private string _floor = "floor";
     private string _ToggleableLights = "ToggleableLights";
+    private string _Portal = "Portal";
     public string Blade => _blade;
     public string Enemy => _enemy;
     public string Powercell => _powercell;
     public string Player => _player;
     public string Floor => _floor;
     public string ToggleableLights => _ToggleableLights;
+    public string Portal => _Portal;
 }

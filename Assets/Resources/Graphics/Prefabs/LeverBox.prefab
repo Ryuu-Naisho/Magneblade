@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LightsOnOPrefab: {fileID: 7275577791810860502, guid: c06f1198aec605b40bca5fee0c0a4360, type: 3}
+  PortalOnMaterial: {fileID: 2100000, guid: 423cf1de77e9e7e48952261ec3f749a0, type: 2}
 --- !u!1 &7543204618339376995
 GameObject:
   m_ObjectHideFlags: 0

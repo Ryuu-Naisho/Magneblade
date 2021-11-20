@@ -27,6 +27,13 @@ public class SceneController : MonoBehaviour
         StartCoroutine(Wait(transitionTime, loadScene));
     }
 
+
+    public void CompleteScene()
+    {
+        Action loadScene = ()=> SceneManager.LoadScene(scenes.CompleteScene);
+        StartCoroutine(Wait(transitionTime, loadScene)); 
+    }
+
     private IEnumerator Wait(float time, Action onComplete)
     {
         yield return new WaitForSeconds(time);
