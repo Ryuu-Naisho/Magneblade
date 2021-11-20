@@ -7,7 +7,6 @@ using UnityEngine;
 public class BladeController : MonoBehaviour
 {
     [SerializeField] private AudioClip[] clips;
-    [SerializeField] private wAnimatorUtils player_hand_animator;
     [SerializeField] private float rejectionForce;
     public int speed;
     private AudioUtil audioUtil;
@@ -17,12 +16,17 @@ public class BladeController : MonoBehaviour
     private wTags tags;
     private int rejectionForceReached = 0;
     private bool rejected = false;
+    private wAnimatorUtils player_hand_animator;
+    private wNames names;
 
     // Start is called before the first frame update
     void Start()
     {
         audioUtil = GetComponent<AudioUtil>();
         tags = new wTags();
+        names = new wNames();
+        GameObject playerObject = GameObject.Find(names.Player);
+        player_hand_animator = playerObject.GetComponentInChildren<wAnimatorUtils>();
     }
 
     // Update is called once per frame
