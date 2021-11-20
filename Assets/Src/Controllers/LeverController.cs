@@ -36,7 +36,7 @@ public class LeverController : MonoBehaviour
         foreach(GameObject light in toggleableLights)
         {
             Renderer renderer = light.GetComponent<Renderer>(); 
-            renderer.materials = OnMaterial;
+            //renderer.materials = OnMaterial;
         }
     }
 
