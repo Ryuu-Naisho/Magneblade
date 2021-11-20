@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: WallAM
     second: {fileID: 2100000, guid: b3c3b0a6697b64e4692c0c0c0cf91066, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowM
+    second: {fileID: 2100000, guid: 667677029ab57df46978bc0cfefd85b2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
