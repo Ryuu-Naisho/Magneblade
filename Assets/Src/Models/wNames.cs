@@ -8,4 +8,6 @@ public class wNames
     public string Player => _player;
     private string _PortalRingOn = "PortalRingOn";
     public string PortalRingOn => _PortalRingOn;
+    private string _shitantMain = "shitant main";
+    public string ShitAntMain => _shitantMain;
 }
