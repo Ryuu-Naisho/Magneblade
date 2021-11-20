@@ -9,5 +9,5 @@ public class wScenes
     public string CompleteScene => _CompleteScene;
 
     private string _menuScene = "MenuScene";
-    public string MenuScene => _mainScene;
+    public string MenuScene => _menuScene;
 }
