@@ -7,12 +7,12 @@ using UnityEngine;
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransform;
     [SerializeField] private int ChaseRange;
     [SerializeField] private int AttackRange;
     [SerializeField] private int health;
     [SerializeField] private float stunnedTime;
     [SerializeField] private AudioClip[] NPCAudioClips;
+    private Transform playerTransform;
     private wAnimatorUtils animator;
     private UnityEngine.AI.NavMeshAgent agent;
     private AudioUtil audioUtil;
@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private bool canMove = true;
     private bool attack = false;
     private bool idle = true;
+    private wNames names;
     private PlayerController playerController;
 
     // Start is called before the first frame update
@@ -28,7 +29,10 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator = GetComponent<wAnimatorUtils>();
         audioUtil = GetComponent<AudioUtil>();
-        playerController = playerTransform.gameObject.GetComponent<PlayerController>();
+        names = new wNames();
+        GameObject playerGameObject = GameObject.Find(names.Player);
+        playerTransform = playerGameObject.transform;
+        playerController = playerGameObject.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
