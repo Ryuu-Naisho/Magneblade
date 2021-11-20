@@ -6,6 +6,8 @@ public class LeverController : MonoBehaviour
 {
     [SerializeField] private Transform LightsOnOPrefab;
     [SerializeField] private Material PortalOnMaterial;
+    [SerializeField] private AudioClip StartUPSound;
+    private AudioSource audioSource;
     private wTags tags;
     private wHints hints;
     private wNames names;
@@ -16,6 +18,7 @@ public class LeverController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         tags = new wTags();
         hints = new wHints();
         names = new wNames();
@@ -49,7 +52,6 @@ public class LeverController : MonoBehaviour
 
 
         GameObject[] portalObjects = GameObject.FindGameObjectsWithTag(tags.Portal);
-        Debug.Log(portalObjects.Length);
         foreach(GameObject portal in portalObjects)
         {
             MeshRenderer meshRenderer = portal.GetComponent<MeshRenderer>();
@@ -57,6 +59,7 @@ public class LeverController : MonoBehaviour
             GameObject portalOnChild = portal.transform.Find(names.PortalRingOn).gameObject;
             portalOnChild.SetActive(true);
         }
+        audioSource.PlayOneShot(StartUPSound);
     }
 
     private void TurnLever()
