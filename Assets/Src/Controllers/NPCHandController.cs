@@ -28,8 +28,8 @@ public class NPCHandController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        tag = collision.gameObject.tag;
-        if (tag == tags.Player)
+        string wtag = collision.gameObject.tag;
+        if (wtag == tags.Player)
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             AudioClip clip = audioUtil.GetRandomClip(HitClips);

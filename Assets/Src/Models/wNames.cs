@@ -6,4 +6,6 @@ public class wNames
     public string GUI => _GUI;
     private string _player = "/Player";
     public string Player => _player;
+    private string _PortalRingOn = "PortalRingOn";
+    public string PortalRingOn => _PortalRingOn;
 }

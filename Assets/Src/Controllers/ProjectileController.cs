@@ -43,8 +43,8 @@ public class ProjectileController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        tag = collision.gameObject.tag;
-        if (tag == tags.Enemy)
+        string wtag = collision.gameObject.tag;
+        if (wtag == tags.Enemy)
         {
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             enemyController.Hit();

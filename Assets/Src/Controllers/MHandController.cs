@@ -94,8 +94,8 @@ public class MHandController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        tag = other.tag;
-        if (tag == tags.Blade || tag == tags.Powercell)
+        string wtag = other.tag;
+        if (wtag == tags.Blade || wtag == tags.Powercell)
         {
             BladeController blade_controller = GetBlade(other);
             blade_controller.DoAttraction(transform);
@@ -105,8 +105,8 @@ public class MHandController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        tag = other.tag;
-        if (tag == tags.Blade || tag == tags.Powercell)
+        string wtag = other.tag;
+        if (wtag == tags.Blade || wtag == tags.Powercell)
         {
             BladeController blade_controller = GetBlade(other);
             blade_controller.StopAttraction();

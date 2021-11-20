@@ -36,8 +36,8 @@ public class PortalController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        tag = other.tag;
-        if (tag == tags.Player)
+        string wtag = other.tag;
+        if (wtag == tags.Player)
         {
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
             if (playerController.UsedLever())
@@ -55,8 +55,8 @@ public class PortalController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        tag = other.tag;
-        if (tag == tags.Player)
+        string wtag = other.tag;
+        if (wtag == tags.Player)
         {
             wGui.clearHint();
             canUse = false;

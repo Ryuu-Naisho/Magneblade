@@ -54,6 +54,8 @@ public class LeverController : MonoBehaviour
         {
             MeshRenderer meshRenderer = portal.GetComponent<MeshRenderer>();
             meshRenderer.material = PortalOnMaterial;
+            GameObject portalOnChild = portal.transform.Find(names.PortalRingOn).gameObject;
+            portalOnChild.SetActive(true);
         }
     }
 
@@ -70,8 +72,8 @@ public class LeverController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        tag = other.tag;
-        if (tag == tags.Player && !leverDown)
+        string wtag = other.tag;
+        if (wtag == tags.Player && !leverDown)
         {
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
             if (playerController.HasAllPowercells())
@@ -90,8 +92,8 @@ public class LeverController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        tag = other.tag;
-        if (tag == tags.Player)
+        string wtag = other.tag;
+        if (wtag == tags.Player)
         {
             wGui.clearHint();
             canUse = false;
