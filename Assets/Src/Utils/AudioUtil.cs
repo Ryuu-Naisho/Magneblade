@@ -63,4 +63,13 @@ public class AudioUtil : MonoBehaviour
     {
         audioSource.Stop();
     }
+
+
+    public AudioClip GetRandomClip(AudioClip[] clips)
+    {
+        int size = clips.Length;
+        int random_index = UnityEngine.Random.Range(0,size);
+        AudioClip clip = clips[random_index];
+        return clip;
+    }
 }
