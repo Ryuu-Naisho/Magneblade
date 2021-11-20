@@ -5,6 +5,7 @@ using UnityEngine;
 public class LeverController : MonoBehaviour
 {
     [SerializeField] private GuiController wGui;
+    [SerializeField] private Material OnMaterial;
     private wTags tags;
     private wHints hints;
     private bool canUse = false;
@@ -28,6 +29,16 @@ public class LeverController : MonoBehaviour
         }
     }
 
+
+    private void TurnPowerOn()
+    {
+        GameObject[] toggleableLights = GameObject.FindGameObjectsWithTag(tags.ToggleableLights);
+        foreach(GameObject light in toggleableLights)
+        {
+            Renderer renderer = light.GetComponent<Renderer>(); 
+            renderer.materials = OnMaterial;
+        }
+    }
 
     private void TurnLever()
     {
