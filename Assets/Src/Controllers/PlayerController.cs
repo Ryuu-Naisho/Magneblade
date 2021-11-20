@@ -77,7 +77,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump") && canMove)
             {
                 //Jump();
-                Debug.Log("Jump");
                 moveDirection.y = jumpSpeed;
             }
             else if(moveSpeed != speed)
@@ -119,7 +118,6 @@ public class PlayerController : MonoBehaviour
     public void Idle()
     {
         _isIdle = true;
-        Debug.Log("Idle.");
     }
 
 
@@ -155,13 +153,11 @@ public class PlayerController : MonoBehaviour
 
     public void Hit()
     {
-        Debug.Log("hit");
         healthPoints --;
         if (healthPoints <= 0)
         {
-            Debug.Log("Dead");
+            //TODO Loser scene
         }
-        //Debug.Log(healthPoints);
     }
 
 
