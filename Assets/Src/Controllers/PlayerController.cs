@@ -26,12 +26,14 @@ public class PlayerController : MonoBehaviour
     private bool canMove = true;
     private bool takingStep = false;
     private bool _isIdle = true;
+    private MHandController handController;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         audioUtil = GetComponent<AudioUtil>();
+        handController = GetComponentInChildren<MHandController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -158,6 +160,19 @@ public class PlayerController : MonoBehaviour
         {
             //TODO Loser scene
         }
+    }
+
+
+    public bool HasAllPowercells()
+    {
+        int currentTotal = handController.GetPowerCellCount();
+        int maxCount = handController.GetMaxPowerCells();
+        bool hasAll = false;
+        if (currentTotal >= maxCount)
+        {
+            hasAll = true;
+        }
+        return hasAll;
     }
 
 

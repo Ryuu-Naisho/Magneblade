@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class LeverController : MonoBehaviour
 {
-    [SerializeField] private GuiController wGui;
-    [SerializeField] private Material OnMaterial;
+    [SerializeField] private Transform LightsOnOPrefab;
     private wTags tags;
     private wHints hints;
+    private wNames names;
     private bool canUse = false;
     private bool leverDown = false;
+    private GuiController wGui;
     // Start is called before the first frame update
     void Start()
     {
         tags = new wTags();
         hints = new wHints();
+        names = new wNames();
+        GameObject GUIObject = GameObject.Find(names.GUI);
+        wGui = GUIObject.GetComponent<GuiController>();
     }
 
     // Update is called once per frame
@@ -35,8 +39,10 @@ public class LeverController : MonoBehaviour
         GameObject[] toggleableLights = GameObject.FindGameObjectsWithTag(tags.ToggleableLights);
         foreach(GameObject light in toggleableLights)
         {
-            Renderer renderer = light.GetComponent<Renderer>(); 
-            //renderer.materials = OnMaterial;
+            Vector3 current_position = light.transform.position;
+            var current_rotation = light.transform.rotation;
+            Destroy(light);
+            Instantiate(LightsOnOPrefab, current_position, current_rotation);
         }
     }
 
@@ -46,6 +52,7 @@ public class LeverController : MonoBehaviour
         wGui.clearHint();
         canUse = false;
         leverDown = true;
+        TurnPowerOn();
     }
 
 
@@ -54,8 +61,16 @@ public class LeverController : MonoBehaviour
         tag = other.tag;
         if (tag == tags.Player && !leverDown)
         {
-            wGui.SetHint(hints.LeverHint);
-            canUse = true;
+            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+            if (playerController.HasAllPowercells())
+            {
+                wGui.SetHint(hints.LeverHint);
+                canUse = true;
+            }
+            else
+            {
+                wGui.SetHint(hints.NeedPowercells);
+            }
         }
     }
 

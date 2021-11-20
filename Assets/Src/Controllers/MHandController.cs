@@ -38,6 +38,16 @@ public class MHandController : MonoBehaviour
         return this.bladeCount;
     }
 
+    public int GetPowerCellCount()
+    {
+        return this.powercellCount;
+    }
+
+    public int GetMaxPowerCells()
+    {
+        return this.maxPowercells;
+    }
+
 
     public void RemoveBlade()
     {
