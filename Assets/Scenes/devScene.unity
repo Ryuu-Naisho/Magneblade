@@ -775,6 +775,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3046c79d0173c4deaa9031be1536f036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &199330392
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199330388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &206213080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7105,7 +7119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.73, z: -0.44}
+  m_LocalPosition: {x: 0, y: 0.73, z: -0.905}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1610975286}
@@ -8281,7 +8295,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -8292,7 +8306,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397015649}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8390,7 +8404,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b8172383d0d6062de845d8421b2af855, type: 3}
   - {fileID: 8300000, guid: 2af3a9ef97d234f2bb52421648996994, type: 3}
   - {fileID: 8300000, guid: b38ded66c7910c052a3ed801e820a2de, type: 3}
-  healthPoints: 20
+  healthPoints: 100
   speed: 20
   walkStepSpeed: 0.5
   jumpSpeed: 3
@@ -8407,7 +8421,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397015649}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -8643,7 +8657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunController: {fileID: 1610975287}
-  maxBlades: 0
+  maxBlades: 6
   maxPowercells: 6
 --- !u!65 &1444623158
 BoxCollider:
