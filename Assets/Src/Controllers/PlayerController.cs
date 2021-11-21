@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private bool leverUsed = false;
     private MHandController handController;
     private SceneController sceneController;
+    private GuiController wGui;
+    private wNames names;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +40,15 @@ public class PlayerController : MonoBehaviour
         handController = GetComponentInChildren<MHandController>();
         sceneController = GetComponent<SceneController>();
         Cursor.lockState = CursorLockMode.Locked;
+        names = new wNames();
+        GameObject GUIObject = GameObject.Find(names.GUI);
+        wGui = GUIObject.GetComponent<GuiController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        wGui.writeHUD(handController.GetBladeCount(), handController.GetPowerCellCount());
         DoBreathingSound();
         DoMovement();
     }
@@ -160,6 +166,7 @@ public class PlayerController : MonoBehaviour
         healthPoints --;
         if (healthPoints <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
             sceneController.LoserScene();
         }
     }
