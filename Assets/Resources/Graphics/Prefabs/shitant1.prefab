@@ -1015,8 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a91c8fda56892fd5ac80a6ca1f03107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  ChaseRange: 20
+  ChaseRange: 10
   AttackRange: 4
   health: 3
   stunnedTime: 2
