@@ -1,6 +1,6 @@
 public class wScenes
 {
-    private string _mainScene = "DevScene";
+    private string _mainScene = "MainScene";
     public string MainScene => _mainScene;
 
     private string _loserScene = "LoserScene";
