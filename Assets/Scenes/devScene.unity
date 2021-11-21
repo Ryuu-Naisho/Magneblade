@@ -8586,8 +8586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunController: {fileID: 1610975287}
-  maxBlades: 6
-  maxPowercells: 0
+  maxBlades: 0
+  maxPowercells: 6
 --- !u!65 &1444623158
 BoxCollider:
   m_ObjectHideFlags: 0

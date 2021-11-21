@@ -13,6 +13,7 @@ public class MHandController : MonoBehaviour
     private wTags tags;
     private int bladeCount = 0;
     private int powercellCount = 0;
+    private PlayerController playerController;
 
 
 
@@ -20,6 +21,8 @@ public class MHandController : MonoBehaviour
     void Start()
     {
         tags = new wTags();
+        Transform parentTransform = transform.root.transform;
+        playerController = parentTransform.gameObject.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -64,6 +67,7 @@ public class MHandController : MonoBehaviour
         }
         else
         {
+            playerController.Hit();
             bladeController.Reject();
         }
     }
@@ -79,6 +83,7 @@ public class MHandController : MonoBehaviour
         }
         else
         {
+            playerController.Hit();
             bladeController.Reject();
         }
     }
