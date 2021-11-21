@@ -28,6 +28,7 @@ public class PortalController : MonoBehaviour
         {
             if (Input.GetKeyDown("e"))
             {
+                Cursor.lockState = CursorLockMode.None;
                 sceneController.CompleteScene();
             }
         }   

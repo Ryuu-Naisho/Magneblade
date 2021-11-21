@@ -5,7 +5,7 @@ public class wScenes
 
     private string _loserScene = "LoserScene";
     public string LoserScene => _loserScene;
-    private string _CompleteScene = "CompleteScene";
+    private string _CompleteScene = "DesertScene";
     public string CompleteScene => _CompleteScene;
 
     private string _menuScene = "MenuScene";
