@@ -8405,12 +8405,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2af3a9ef97d234f2bb52421648996994, type: 3}
   - {fileID: 8300000, guid: b38ded66c7910c052a3ed801e820a2de, type: 3}
   healthPoints: 100
-  speed: 20
+  speed: 10
   walkStepSpeed: 0.5
   jumpSpeed: 3
   gravity: 5
   playerCamera: {fileID: 963194227}
-  lookSpeed: 2
+  lookSpeed: 1.2
   lookXLimit: 20
   lookDistance: 30
 --- !u!54 &1397015656
